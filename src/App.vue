@@ -22,9 +22,11 @@ export default defineComponent({
   padding: 0;
 }
 .container {
+  overflow: hidden;
   display: flex;
   justify-content: center;
   background-color: #333;
   height: 100vh;
 }
+
 </style>

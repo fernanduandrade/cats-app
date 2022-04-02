@@ -20,7 +20,7 @@ export default defineComponent({
       load: false
     })
     const cat = reactive({
-      imgUrl: ''
+      imgUrl: 'https://s1.1zoom.me/big0/378/Cats_Kittens_Glance_White_background_590695_1280x720.jpg'
     })
 
     const getCats = async () => {

@@ -10,7 +10,12 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  
+
+  @media screen and (max-width: 1300px) {
+    margin-top: 3rem;
+    width: 650px;
+    height: 470px;
+  }
   &-text {
     position: absolute;
     top: 25px;
@@ -28,6 +33,12 @@
     border: #FDDA0D 2px solid;
     width: 500px;
     height: 350px;
+
+    @media screen and (max-width: 1300px) {
+      margin-top: 130px;
+      width: 400px;
+      height: 250px;
+    }
   }
 
   &-button {
@@ -47,6 +58,10 @@
 
     &:hover {
       background: rgb(67 56 202);
+    }
+
+    @media screen and (max-width: 1300px) {
+      top: 85px;
     }
   }
 
