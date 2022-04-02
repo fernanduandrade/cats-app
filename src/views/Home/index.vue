@@ -2,37 +2,30 @@
   <div class="cat">
     <h3 class="cat-text">🐱 imagens de gatinhos🐱 </h3>
     <button class="cat-button" @click="getCats">clique aqui</button>
-    <div class="cat-spinner" v-if="request.load">
+    <div class="cat-spinner" v-if="load">
       <i class="gg-spinner"></i>
     </div>
-    <img v-else class="cat-img" :src="cat.imgUrl">
+    <img v-else class="cat-img" :src="link">
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, reactive } from 'vue'
+<script lang="ts" setup>
+import { onMounted, ref } from 'vue'
 import getCat from '@/services/get-cat'
 
-export default defineComponent({
-  name: 'Home',
-  setup () {
-    const request = reactive({
-      load: false
-    })
-    const cat = reactive({
-      imgUrl: 'https://s1.1zoom.me/big0/378/Cats_Kittens_Glance_White_background_590695_1280x720.jpg'
-    })
+const load = ref(false)
+const link = ref('')
 
-    const getCats = async () => {
-      request.load = true
-      cat.imgUrl = await getCat()
-      request.load = false
-    }
+const getCats = async () => {
+  load.value = true
+  const response = await getCat()
+  link.value = response
+  load.value = false
+}
 
-    return { getCats, cat, request }
-  }
+onMounted(() => {
+  getCats()
 })
-
 </script>
 
 <style lang="scss" scoped>
