@@ -1,7 +1,7 @@
 <template>
   <div class="cat">
-    <h3 class="cat-text">gerador de gatinhos</h3>
-    <button class="cat-button" @click="getCats">próximo</button>
+    <h3 class="cat-text">🐱 imagens de gatinhos🐱 </h3>
+    <button class="cat-button" @click="getCats">clique aqui</button>
     <div class="cat-spinner" v-if="request.load">
       <i class="gg-spinner"></i>
     </div>
