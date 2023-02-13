@@ -24,7 +24,6 @@ const getCats = async () => {
 }
 
 const onImgLoad = () => {
-  console.log('caiu aqui')
   loading.value = false
 }
 
