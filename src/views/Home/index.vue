@@ -2,33 +2,36 @@
   <div class="cat">
     <h3 class="cat-text">🐱 imagens de gatinhos🐱 </h3>
     <button class="cat-button" @click="getCats">clique aqui</button>
-    <div class="cat-spinner" v-if="load">
+    <img class="cat-img" :src="link" @load="onImgLoad"
+    :style="[loading ? {'display': 'none'} : {'display': 'block'}]" />
+    <div class="cat-spinner" v-if="loading">
       <i class="gg-spinner"></i>
     </div>
-    <img v-else class="cat-img" :src="link">
   </div>
 </template>
 
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue'
-import getCat from '@/services/get-cat'
+import fetchCatImg from '@/services/get-cat'
 
-const load = ref(false)
+const loading = ref(false)
 const link = ref('')
 
 const getCats = async () => {
-  load.value = true
-  const response = await getCat()
+  loading.value = true
+  const response = await fetchCatImg()
   link.value = response
-  load.value = false
 }
 
-onMounted(() => {
-  getCats()
+const onImgLoad = () => {
+  console.log('caiu aqui')
+  loading.value = false
+}
+
+onMounted(async () => {
+  await getCats()
 })
 </script>
 
-<style lang="scss" scoped>
-@import './sass/_base.scss';
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap');
+<style lang="scss" src="./styles.scss">
 </style>

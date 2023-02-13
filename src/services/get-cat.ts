@@ -12,6 +12,7 @@ interface Cats {
   'breed_ids'?: number;
 }
 
-export default function () {
-  return catApi.get('?limit=1&size=full').then((response) => response.data[0].url)
+export default async function (): Promise<string> {
+  const response = await catApi.get('?limit=1&size=full')
+  return response.data[0].url
 }
