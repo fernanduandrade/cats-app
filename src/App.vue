@@ -16,17 +16,5 @@ export default defineComponent({
 })
 </script>
 
-<style>
-* {
-  margin: 0;
-  padding: 0;
-}
-.container {
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  background-color: #333;
-  height: 100vh;
-}
-
+<style lang="scss" src="./css/main.scss">
 </style>

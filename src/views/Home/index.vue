@@ -12,15 +12,15 @@
 
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue'
-import fetchCatImg from '@/services/get-cat'
+import { useFetchCat } from '@/components/composables/cats'
 
 const loading = ref(false)
 const link = ref('')
 
 const getCats = async () => {
   loading.value = true
-  const response = await fetchCatImg()
-  link.value = response
+  const { value } = await useFetchCat()
+  link.value = value
 }
 
 const onImgLoad = () => {
@@ -28,7 +28,9 @@ const onImgLoad = () => {
 }
 
 onMounted(async () => {
-  await getCats()
+  loading.value = true
+  const { value } = await useFetchCat()
+  link.value = value
 })
 </script>
 
