@@ -1,10 +1,9 @@
 .cat {
   position: relative;
-  margin-top: 10rem;
   width: 750px;
   height: 670px;
-  background-color: #1c1c1c;
-  border: 4px 4px 4px 4px #cccccc;
+  box-shadow: rgb(11 43 158 / 15%) 0px 6px 20px -6px;;
+  border: 4px;
   border-radius: 9px;
   display: flex;
   justify-content: center;
@@ -24,7 +23,7 @@
     text-align: center;
     text-transform: uppercase;
     font-size: 1.8rem;
-    color: #fff;
+    color: #4d5b7c;
   }
 
   &-img {
